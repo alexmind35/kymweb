@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+    <section class="section hero" id="js-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero__title">
+                        {% for hero in hero_list %}
+                            <h1>{{ hero.heading_hero }}</h1>
+                        {% endfor %}
+                    </div>
+                    <hr class="hr"/>
+                    {% for services in services_list %}
+                        <div class="hero__item">
+                            <img src="{% static 'img/icons/kolenval.png' %}"
+                                 alt="{{ services.name_services }}"/>{{ services.name_services }}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-6">
+                    {% for hero in hero_list %}
+                        <img class="hero__image" src="{{ hero.image_hero.url }}" alt="{{ hero.heading_hero }}"/>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- hero -->
+    <section class="section why" id="js-why">
+        <div class="container">
+            <div class="section__title">
+                <h2 class="section__title-heading">
+                    <span class="section__title-icon section__title-icon--left"></span>
+                    Почему мы?<span
+                        class="section__title-icon section__title-icon--right"
+                ></span>
+                </h2>
+                <p class="section__title-text">Шесть причин нам доверять</p>
+            </div>
+            <div class="row">
+                {% for why in why_list %}
+                <div class="col-lg-4 col-sm-6 col-12 col-why">
+                    <div class="card">
+                        <span class="work__slider-icon work__slider-icon--right-price"></span>
+                        <div class="card__wrapper">
+                            <div class="card__heading card__heading--why">
+                                <img class="card__icon" src="{% static 'img/icons/why/experience.svg' %}"
+                                     alt="{{ why.name_why }}"/>
+                                <h3 class="card__title">{{ why.name_why }}</h3>
+                            </div>
+
+                            <div class="card__text">
+                                <p>
+                                    {{ why.text_why }}
+                                </p>
+                            </div>
+                        </div>
+                        <span class="work__slider-icon why__slider-icon--left"></span>
+                        <span class="work__slider-icon why__slider-icon--bottom"></span>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+    <!-- end why -->
+    <!-- work -->
+      <section class="section work" id="js-work">
+          <div class="container">
+            <div class="section__title">
+              <h2 class="section__title-heading">
+                <span class="section__title-icon section__title-icon--left"></span>
+                Работа<span
+                  class="section__title-icon section__title-icon--right"
+                ></span>
+              </h2>
+              <p class="section__title-text">Взгляните, как мы работаем</p>
+            </div>
+            <div class="row">
+              <div class="col-lg-9 col-sm-12 slider__main">
+                  <a class="slider__arrow slider__arrow--main slider-arrow-next">
+                      <svg class="slider__arrow-icon slider__arrow-icon--prev">
+                        <use xlink:href="#arrow"></use>
+                    </svg>
+                  </a>
+                <div class="work__slider">
+                  <div class="work__slider-wrapper">
+                      <span class="work__slider-icon work__slider-icon--right"></span>
+
+                        <div class="work__slider-item">
+
+                          <div class="slider">
+                            <div class="viewport">
+                              <ul class="sliderwprapper">
+                                  {% for work in work_list %}
+                                <li class="slide"><img class="work__slider-img" src="{{ work.image_work.url }}" alt="{{ work.text_work }}">
+                                  <span class="work__slider-text">
+                                    {{ work.text_work }}
+                                  </span>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </div>
+                          </div>
+
+                        </div>
+
+                      <span class="work__slider-icon work__slider-icon--left"></span>
+                      <span class="work__slider-icon work__slider-icon--bottom"></span>
+
+                  </div>
+              </div>
+              <a class="slider__arrow slider__arrow--main slider-arrow-prev">
+                  <svg class="slider__arrow-icon slider__arrow-icon--next">
+                      <use xlink:href="#arrow"></use>
+                  </svg>
+              </a>
+
+            </div>
+            <div class="col-lg-2 col-sm-4 slider__small">
+                <a class="slider__arrow slider-arrow-next">
+                    <svg class="slider__arrow-icon slider__arrow-icon--prev">
+                      <use xlink:href="#arrow"></use>
+                  </svg>
+                </a>
+              <div class="work__slider work__slider--small">
+
+                {% for work in work_list %}
+                      <div class="work__slider-wrapper mini-slide">
+                        <div class="work__slider-item work__slider-item--small">
+                            <img class="work__slider-img work__slider-img--small" src="{{ work.image_work.url }}" alt="{{ work.text_work }}" />
+                        </div>
+                      </div>
+                 {% endfor %}
+
+              </div>
+              <a class="slider__arrow slider-arrow-prev">
+                <svg class="slider__arrow-icon slider__arrow-icon--next">
+                    <use xlink:href="#arrow"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!--end  work -->
+          <!--price -->
+      <section class="section price" id="js-price">
+        <div class="container">
+          <div class="section__title">
+            <h2 class="section__title-heading">
+              <span class="section__title-icon section__title-icon--left"></span>
+              Цены<span
+                class="section__title-icon section__title-icon--right"
+              ></span>
+            </h2>
+            <p class="section__title-text">Наши цены вас приятно удивят</p>
+          </div>
+          <div class="row">
+              <div class="col-lg-3 col-sm-6 col-12 col-price">
+                <div class="card">
+                    <span class="work__slider-icon work__slider-icon--right-price"></span>
+                  <div class="card__wrapper">
+                    <div class="card__heading card__heading--price">
+                      <img class="card__icon card__icon--price" src="/assets/img/icons/price.png" alt="шлифовка коленчатых валов"/>
+                      <h3 class="card__title">шлифовка коленчатых валов</h3>
+                    </div>
+
+                    <div class="card__text card__text--price">
+                      <h4 class="card__price-count">
+                        900 <sup>рублей</sup>
+                      </h4>
+                    </div>
+                    <div class="card__button">
+                        <a href="tel:+79184639571" class="card__button-price">Заказать</a>
+                    </div>
+                  </div>
+                  <span class="work__slider-icon why__slider-icon--left"></span>
+                  <span class="work__slider-icon why__slider-icon--bottom"></span>
+                </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 col-12 col-price">
+                  <div class="card">
+                      <span class="work__slider-icon work__slider-icon--right-price"></span>
+                    <div class="card__wrapper">
+                      <div class="card__heading card__heading--price">
+                        <img class="card__icon card__icon--price" src="/assets/img/icons/price.png" alt="шлифовка коленчатых валов"/>
+                        <h3 class="card__title">шлифовка коленчатых валов</h3>
+                      </div>
+
+                      <div class="card__text card__text--price">
+                        <h4 class="card__price-count">
+                          1900 <sup>рублей</sup>
+                        </h4>
+                      </div>
+                      <div class="card__button">
+                          <a href="tel:+79184639571" class="card__button-price">Заказать</a>
+                      </div>
+                    </div>
+                    <span class="work__slider-icon why__slider-icon--left"></span>
+                    <span class="work__slider-icon why__slider-icon--bottom"></span>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12 col-price">
+                    <div class="card">
+                        <span class="work__slider-icon work__slider-icon--right-price"></span>
+                      <div class="card__wrapper">
+                        <div class="card__heading card__heading--price">
+                          <img class="card__icon card__icon--price" src="/assets/img/icons/price.png" alt="Расточка и хонингование блоков цилиндров"/>
+                          <h3 class="card__title">Расточка и хонингование блоков цилиндров</h3>
+                        </div>
+
+                        <div class="card__text card__text--price">
+                          <h4 class="card__price-count">
+                            900 <sup>рублей</sup>
+                          </h4>
+                        </div>
+                        <div class="card__button">
+                            <a href="tel:+79184639571" class="card__button-price">Заказать</a>
+                        </div>
+                      </div>
+                      <span class="work__slider-icon why__slider-icon--left"></span>
+                      <span class="work__slider-icon why__slider-icon--bottom"></span>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 col-sm-6 col-12 col-price">
+                      <div class="card">
+                          <span class="work__slider-icon work__slider-icon--right-price"></span>
+                        <div class="card__wrapper">
+                          <div class="card__heading card__heading--price">
+                            <img class="card__icon card__icon--price" src="/assets/img/icons/price.png" alt="шлифовка коленчатых валов"/>
+                            <h3 class="card__title">шлифовка коленчатых валов</h3>
+                          </div>
+
+                          <div class="card__text card__text--price">
+                            <h4 class="card__price-count">
+                              1900 <sup>рублей</sup>
+                            </h4>
+                          </div>
+                          <div class="card__button">
+                              <a href="tel:+79184639571" class="card__button-price">Заказать</a>
+                          </div>
+                        </div>
+                        <span class="work__slider-icon why__slider-icon--left"></span>
+                        <span class="work__slider-icon why__slider-icon--bottom"></span>
+                      </div>
+                    </div>
+
+
+                  </div>
+              </div>
+      </section>
+      <!-- end price -->
+{% endblock %}

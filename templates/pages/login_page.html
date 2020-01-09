@@ -1,0 +1,39 @@
+{% extends "adminka.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="section hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hero__title hero__title--admin">
+                        <h1>Авторизация</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <span class="work__slider-icon work__slider-icon--right-price"></span>
+                        <div class="card__wrapper">
+                            <div class="card__heading">
+                                <h3 class="card__title">МЕНЮ</h3>
+                            </div>
+
+                            <div class="card__text">
+                               <form action="" method="post">
+                                  {% csrf_token %}
+                                  {{ form.as_p }}
+                                  <button type="submit">Войти</button>
+                                </form>
+                            </div>
+                        </div>
+                        <span class="work__slider-icon why__slider-icon--left"></span>
+                        <span class="work__slider-icon why__slider-icon--bottom"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end adminka -->
+{% endblock %}
