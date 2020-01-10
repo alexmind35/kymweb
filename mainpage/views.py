@@ -35,11 +35,11 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, ('You Have Been Logged In!'))
+            messages.success(request, ('Вы вошли в систему!'))
             return redirect('home')
 
         else:
-            messages.success(request, ('Error Logging In - Please Try Again...'))
+            messages.success(request, ('Ошибка! Неправильный логин или пароль'))
             return redirect('dashboard')
     else:
         return render(request, 'pages/login_page.html', {})

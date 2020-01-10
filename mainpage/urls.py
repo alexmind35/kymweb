@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import dashboard_view
+
 
 urlpatterns = [
     path('', views.HeroView.as_view(), name='home'),
@@ -9,6 +9,6 @@ urlpatterns = [
     path('register/', views.register_user, name='register'),
     path('edit_profile/', views.edit_profile, name='edit_profile'),
     path('change_password', views.change_password, name='change_password'),
-    path('dashboard/', dashboard_view, name='dashboard')
+    path('dashboard/', views.dashboard_view, name='dashboard'),
 
 ]
