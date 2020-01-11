@@ -35,12 +35,11 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, ('Вы вошли в систему!'))
-            return redirect('home')
+            return redirect('dashboard')
 
         else:
             messages.success(request, ('Ошибка! Неправильный логин или пароль'))
-            return redirect('dashboard')
+            return redirect('login')
     else:
         return render(request, 'pages/login_page.html', {})
 
@@ -50,7 +49,6 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, ('You Have Been Logged Out...'))
     return redirect('home')
 
 
@@ -103,4 +101,5 @@ def change_password(request):
 
 @login_required
 def dashboard_view(request):
-    return render(request, "pages/admin_app.html")
+    messages.success(request, ('Авторизуйтесь!Введите логин и пароль'))
+    return render(request, "pages/admin_page.html")
