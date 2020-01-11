@@ -1,3 +1,5 @@
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic.base import View
 
@@ -20,3 +22,8 @@ class HeroView(View):
                           "why_list": why_section,
                           "work_list": work_section,
                       })
+
+@login_required
+def dashboard_view(request):
+    messages.success(request, ('Авторизуйтесь!Введите логин и пароль'))
+    return render(request, "pages/admin_page.html")

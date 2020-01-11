@@ -170,3 +170,7 @@ STATICFILES_DIRS = [
 # Media folder
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+LOGIN_REDIRECT_URL = '/accounts/dashboard/'
+LOGIN_URL = '/accounts/login/'
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackendds'
