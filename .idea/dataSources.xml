@@ -7,5 +7,13 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/kymweb_db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="003c4520-caeb-4923-869c-4e4aa60fbd1f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/kymweb/settings.py</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/kymweb_db</jdbc-url>
+    </data-source>
   </component>
 </project>
