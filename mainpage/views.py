@@ -1,6 +1,7 @@
 from django.contrib import messages
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.base import View
 
 from .models import Hero
@@ -27,3 +28,7 @@ class HeroView(View):
 def dashboard_view(request):
     messages.success(request, ('Авторизуйтесь!Введите логин и пароль'))
     return render(request, "pages/admin_page.html")
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')
