@@ -277,14 +277,14 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="header__item">
-                        <a class="header__link" href="">
+                        <a class="header__link" href="{% url "dashboard" %}">
                             <svg class="header__link-icon">
                                 <use xlink:href="#dashboard"></use>
                             </svg>
                         </a>
                     </li>
                     <li class="header__item">
-                        <a class="header__link" href="">
+                        <a class="header__link" href="{% url "logout" %}">
                             <svg class="header__link-icon">
                                 <use xlink:href="#exit"></use>
                             </svg>
@@ -292,14 +292,14 @@
                     </li>
                 {% else %}
                     <li class="header__item">
-                        <a class="header__link" href="">
+                        <a class="header__link" href="{% url "login" %}">
                             <svg class="header__link-icon">
                                 <use xlink:href="#login"></use>
                             </svg>
                         </a>
                     </li>
                     <li class="header__item">
-                        <a class="header__link" href="">
+                        <a class="header__link" href="{% url "register" %}">
                             <svg class="header__link-icon">
                                 <use xlink:href="#registration"></use>
                             </svg>
